@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Dreamscapes — AI Wallpapers by Adrien Donot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Loader -->
+    <div class="loader">
+        <div class="loader-text">
+            <span>D</span><span>I</span><span>G</span><span>I</span><span>T</span><span>A</span><span>L</span>
+        </div>
+        <div class="loader-text accent">
+            <span>D</span><span>R</span><span>E</span><span>A</span><span>M</span><span>S</span><span>C</span><span>A</span><span>P</span><span>E</span><span>S</span>
+        </div>
+        <div class="loader-bar"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">DIGITAL <span class="logo-accent">DREAMSCAPES</span></a>
+        <nav>
+            <a href="#gallery">Collection</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-badge">Wallpapers by Adrien Donot</p>
+            <h1>
+                <span class="line">DIGITAL</span>
+                <span class="line accent">DREAMSCAPES</span>
+            </h1>
+            <p class="hero-subtitle">45 unique AI-crafted wallpapers, hand-retouched with care.<br>Download instantly — <span class="price">$2</span> each</p>
+            <a href="#gallery" class="cta">
+                <span>Browse & Download</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </a>
+        </div>
+        <div class="hero-preview" id="hero-preview"></div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Manifesto Section -->
+    <section class="manifesto">
+        <div class="manifesto-content">
+            <div class="manifesto-badge">The Vision</div>
+            <h2>Serenity for Your <span class="italic">Screen</span></h2>
+            <div class="manifesto-text">
+                <p>These wallpapers are designed to bring calm, relaxation, and a sense of serenity to your daily digital experience. Every glance at your screen becomes a moment of peace.</p>
+                <p>Each image represents hours of meticulous work — from crafting the perfect prompt to hand-retouching every detail. This is a genuine aesthetic pursuit, not a quick generation.</p>
+                <p>You may notice strange AI artifacts in some pieces. I've deliberately kept them. When AI hallucinates, it tries to understand our world but doesn't quite succeed — so it fills the gaps with what resembles pure imagination and raw creativity.</p>
+                <p class="highlight">I love when AI dreams. Mastering this beautiful deviation through prompting and retouching is what makes these visuals truly singular.</p>
+            </div>
+            <div class="manifesto-signature">
+                <span class="signature-line"></span>
+                <span class="signature-name">Adrien Donot</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details 4K Section -->
+    <section class="details" id="details">
+        <div class="details-header">
+            <div class="details-badge">EXCEPTIONAL QUALITY</div>
+            <h2>EVERY<br><span class="italic">PIXEL</span><br>MATTERS</h2>
+            <p>Our wallpapers are created in ultra high definition. Zoom in, admire every detail — quality remains flawless.</p>
+        </div>
+        
+        <div class="details-showcase">
+            <div class="detail-card">
+                <div class="detail-zoom" style="background-image: url('wall/Eyes-That-Hold-Wilderness.jpeg')">
+                    <div class="zoom-lens"></div>
+                </div>
+                <div class="detail-info">
+                    <span class="detail-label">Texture & Fur</span>
+                    <span class="detail-res">8192 × 5464 px</span>
+                </div>
+            </div>
+            
+            <div class="detail-card">
+                <div class="detail-zoom" style="background-image: url('wall/Master-of-a-Thousand-Colors.jpeg')">
+                    <div class="zoom-lens"></div>
+                </div>
+                <div class="detail-info">
+                    <span class="detail-label">Scales & Colors</span>
+                    <span class="detail-res">7680 × 4320 px</span>
+                </div>
+            </div>
+            
+            <div class="detail-card">
+                <div class="detail-zoom" style="background-image: url('wall/Daughter-of-the-Rising-Sun.png')">
+                    <div class="zoom-lens"></div>
+                </div>
+                <div class="detail-info">
+                    <span class="detail-label">Art & Precision</span>
+                    <span class="detail-res">6144 × 4096 px</span>
+                </div>
+            </div>
+            
+            <div class="detail-card">
+                <div class="detail-zoom" style="background-image: url('wall/Pearl-of-Another-World.png')">
+                    <div class="zoom-lens"></div>
+                </div>
+                <div class="detail-info">
+                    <span class="detail-label">Ethereal Glow</span>
+                    <span class="detail-res">8192 × 5464 px</span>
+                </div>
+            </div>
+            
+            <div class="detail-card">
+                <div class="detail-zoom" style="background-image: url('wall/Innocence-Guarded.png')">
+                    <div class="zoom-lens"></div>
+                </div>
+                <div class="detail-info">
+                    <span class="detail-label">Soft & Powerful</span>
+                    <span class="detail-res">7680 × 4320 px</span>
+                </div>
+            </div>
+            
+            <div class="detail-card">
+                <div class="detail-zoom" style="background-image: url('wall/Honor-in-Silence.jpeg')">
+                    <div class="zoom-lens"></div>
+                </div>
+                <div class="detail-info">
+                    <span class="detail-label">Cinematic Depth</span>
+                    <span class="detail-res">6144 × 4096 px</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details-process">
+            <div class="process-title">Our creative process</div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <div class="step-name">Midjourney</div>
+                    <div class="step-desc">Creative AI generation</div>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M12 5V3M12 21V19M5 12H3M21 12H19" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M16.95 7.05L18.36 5.64M5.64 18.36L7.05 16.95M16.95 16.95L18.36 18.36M5.64 5.64L7.05 7.05" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <div class="step-name">Magnific.ai</div>
+                    <div class="step-desc">4K+ ultra-detail upscale</div>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 19L19 12L22 15L15 22L12 19Z" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M18 13L16.5 5.5L2 2L5.5 16.5L13 18L18 13Z" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="9" cy="9" r="2" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <div class="step-name">Photoshop</div>
+                    <div class="step-desc">Final hand retouching</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details-stats">
+            <div class="detail-stat">
+                <span class="stat-icon">◈</span>
+                <span class="stat-value">4K+</span>
+                <span class="stat-desc">Minimum resolution</span>
+            </div>
+            <div class="detail-stat">
+                <span class="stat-icon">◇</span>
+                <span class="stat-value">300+</span>
+                <span class="stat-desc">DPI for printing</span>
+            </div>
+            <div class="detail-stat">
+                <span class="stat-icon">○</span>
+                <span class="stat-value">16:10</span>
+                <span class="stat-desc">Optimal ratio</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zoom Modal -->
+    <div class="zoom-modal" id="zoom-modal">
+        <button class="zoom-modal-close">&times;</button>
+        <div class="zoom-modal-content">
+            <div class="zoom-container" id="zoom-container">
+                <img src="" alt="" id="zoom-image">
+            </div>
+            <div class="zoom-instructions">
+                <span>Move your mouse to explore details</span>
+                <span class="zoom-level">Zoom 300%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Prompt Art Section -->
+    <section class="prompt-section" id="prompt">
+        <div class="prompt-header">
+            <div class="prompt-badge">BEHIND THE SCENES</div>
+            <h2>THE ART OF<br><span class="italic">PROMPTING</span></h2>
+            <p>Every image starts with carefully crafted words. Here's how we write prompts that bring visions to life.</p>
+        </div>
+        
+        <div class="prompt-showcase">
+            <div class="prompt-example">
+                <div class="prompt-label">
+                    <span class="label-icon">/</span>
+                    <span>imagine</span>
+                </div>
+                <div class="prompt-text">
+                    <span class="prompt-word subject" data-type="Subject">A majestic snow leopard</span>
+                    <span class="prompt-word action" data-type="Action">resting on ancient temple ruins</span>
+                    <span class="prompt-word environment" data-type="Environment">in a mystical Himalayan forest</span>,
+                    <span class="prompt-word lighting animated" data-type="Lighting">golden hour sunlight filtering through mist</span>,
+                    <span class="prompt-word detail" data-type="Details">intricate fur texture</span>,
+                    <span class="prompt-word detail" data-type="Details">piercing blue eyes</span>,
+                    <span class="prompt-word style highlighted" data-type="Style">dreamlike surrealism</span>,
+                    <span class="prompt-word mood" data-type="Mood">ethereal and serene atmosphere</span>,
+                    <span class="prompt-word technical" data-type="Technical">8K resolution</span>,
+                    <span class="prompt-word technical" data-type="Technical">hyperdetailed</span>,
+                    <span class="prompt-word technical" data-type="Technical">cinematic composition</span>
+                    <span class="prompt-word params" data-type="Parameters">--ar 16:10 --v 6 --s 750 --q 2</span>
+                </div>
+            </div>
+            
+            <div class="prompt-legend">
+                <div class="legend-item">
+                    <span class="legend-color subject"></span>
+                    <span class="legend-label">Subject</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color action"></span>
+                    <span class="legend-label">Action</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color environment"></span>
+                    <span class="legend-label">Environment</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color lighting"></span>
+                    <span class="legend-label">Lighting</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color detail"></span>
+                    <span class="legend-label">Details</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color style"></span>
+                    <span class="legend-label">Style</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color mood"></span>
+                    <span class="legend-label">Mood</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color technical"></span>
+                    <span class="legend-label">Technical</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color params"></span>
+                    <span class="legend-label">Parameters</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="prompt-tips">
+            <div class="tip">
+                <div class="tip-number">01</div>
+                <div class="tip-content">
+                    <h4>Start with the subject</h4>
+                    <p>The main focus of your image should come first for maximum impact.</p>
+                </div>
+            </div>
+            <div class="tip">
+                <div class="tip-number">02</div>
+                <div class="tip-content">
+                    <h4>Layer your details</h4>
+                    <p>Add environment, lighting, and mood to create depth and atmosphere.</p>
+                </div>
+            </div>
+            <div class="tip">
+                <div class="tip-number">03</div>
+                <div class="tip-content">
+                    <h4>Reference artists</h4>
+                    <p>Mentioning specific styles or artists guides the AI's aesthetic choices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="gallery-header">
+            <h2>COLLECTION</h2>
+            <div class="gallery-count"><span id="count">45</span> artworks</div>
+        </div>
+        <div class="gallery-grid" id="gallery-grid">
+            <!-- Images will be injected here -->
+        </div>
+    </section>
+
+    <!-- Pack Section -->
+    <section class="pack" id="pack">
+        <div class="pack-content">
+            <div class="pack-badge">SPECIAL OFFER</div>
+            <h2>COMPLETE<br><span class="italic">BUNDLE</span></h2>
+            <p class="pack-description">Get all <strong>45 wallpapers</strong> from the collection in a single purchase. Massive savings for true collectors.</p>
+            
+            <div class="pack-pricing">
+                <div class="pack-compare">
+                    <div class="price-old">
+                        <span class="label">45 × $2 =</span>
+                        <span class="amount">$90</span>
+                    </div>
+                    <div class="price-arrow">→</div>
+                    <div class="price-new">
+                        <span class="label">Complete bundle</span>
+                        <span class="amount">$50</span>
+                    </div>
+                </div>
+                
+                <div class="pack-savings">
+                    <span class="savings-badge">-44%</span>
+                    <span class="savings-text">Save <strong>$40</strong></span>
+                </div>
+            </div>
+            
+            <div class="pack-features">
+                <div class="feature">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span>45 high-resolution wallpapers (4K+)</span>
+                </div>
+                <div class="feature">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span>Instant download</span>
+                </div>
+                <div class="feature">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span>Unlimited personal use</span>
+                </div>
+            </div>
+            
+            <button class="pack-btn" id="buy-pack-btn">
+                <span>Buy complete bundle — $50</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="pack-preview">
+            <div class="pack-grid">
+                <div class="pack-img" style="background-image: url('wall/When-Stars-Remember.jpeg')"></div>
+                <div class="pack-img" style="background-image: url('wall/Eyes-That-Hold-Wilderness.jpeg')"></div>
+                <div class="pack-img" style="background-image: url('wall/Innocence-Guarded.png')"></div>
+                <div class="pack-img" style="background-image: url('wall/Daughter-of-the-Rising-Sun.png')"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>DIGITAL<br><span class="italic">CREATIONS</span></h2>
+            <p>Each wallpaper is a carefully crafted piece of digital art. From dreamlike landscapes to fantastic creatures, immerse yourself in unique visual universes that will transform your screen into an art gallery.</p>
+            <div class="about-stats">
+                <div class="stat">
+                    <span class="stat-number">45</span>
+                    <span class="stat-label">Artworks</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">$2</span>
+                    <span class="stat-label">Per piece</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4K+</span>
+                    <span class="stat-label">Resolution</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artist Section -->
+    <section class="artist" id="artist">
+        <div class="artist-image">
+            <img src="wall/moi.JPG" alt="Pulssart - The Artist">
+        </div>
+        <div class="artist-content">
+            <div class="artist-label">The Artist Behind the Pixels</div>
+            <h2>HELLO, I'M<br><span class="italic">PULSSART</span></h2>
+            <div class="artist-bio">
+                <p>By day, I'm a <strong>Senior Product Designer</strong> crafting digital experiences. But for years, the creative community has known me as <strong>Pulssart</strong> — a name synonymous with photographic illustrations that blur the line between reality and imagination.</p>
+                <p>This collection marks my <strong>first venture into generative art</strong>. My goal? To find a consistent visual language — clean, minimal, yet deeply evocative. Each piece is a meditation on simplicity, where every element serves a purpose and nothing is left to chance.</p>
+                <p>These wallpapers are the result of countless hours refining prompts, upscaling with precision, and hand-retouching every detail until the vision feels complete.</p>
+            </div>
+            <div class="artist-signature">
+                <span class="signature-text">— Adrien Donot</span>
+                <span class="signature-aka">aka Pulssart</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close">&times;</button>
+        <div class="lightbox-content">
+            <div class="lightbox-image-container">
+                <img src="" alt="" id="lightbox-image">
+            </div>
+            <div class="lightbox-info">
+                <h3 id="lightbox-title"></h3>
+                <div class="lightbox-price">$2.00 USD</div>
+                <button class="buy-btn" id="buy-btn">
+                    <span>Buy now</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+                <p class="lightbox-note">Instant download after payment</p>
+            </div>
+        </div>
+        <button class="lightbox-nav prev" id="prev-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </button>
+        <button class="lightbox-nav next" id="next-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <span class="footer-logo">DIGITAL <span class="logo-accent">DREAMSCAPES</span></span>
+            <span class="footer-copy">© 2024 — All rights reserved</span>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
