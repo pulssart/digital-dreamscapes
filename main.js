@@ -203,8 +203,98 @@ hoverElements.forEach(el => {
 window.addEventListener('load', () => {
     setTimeout(() => {
         loader.classList.add('hidden');
+        // Start audio after loader with fade in
+        initAudioPlayer();
     }, 2000);
 });
+
+// ═══════════════════════════════════════════════════════════
+// AUDIO PLAYER
+// ═══════════════════════════════════════════════════════════
+
+const bgAudio = document.getElementById('bg-audio');
+const audioPlayer = document.getElementById('audio-player');
+const audioBtn = document.getElementById('audio-btn');
+let isPlaying = false;
+
+function initAudioPlayer() {
+    // Show player with animation
+    setTimeout(() => {
+        audioPlayer.classList.add('visible');
+    }, 500);
+    
+    // Try to autoplay with fade in
+    setTimeout(() => {
+        playAudioWithFade();
+    }, 1000);
+}
+
+function playAudioWithFade() {
+    bgAudio.volume = 0;
+    
+    // Try to play (may be blocked by browser autoplay policy)
+    const playPromise = bgAudio.play();
+    
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            // Autoplay started successfully
+            isPlaying = true;
+            audioPlayer.classList.add('playing');
+            fadeAudioIn();
+        }).catch((error) => {
+            // Autoplay was prevented - wait for user interaction
+            console.log('Autoplay blocked, waiting for user interaction');
+            isPlaying = false;
+            audioPlayer.classList.remove('playing');
+        });
+    }
+}
+
+function fadeAudioIn() {
+    let volume = 0;
+    const fadeInterval = setInterval(() => {
+        volume += 0.02;
+        if (volume >= 0.3) { // Max volume 30% for ambient music
+            volume = 0.3;
+            clearInterval(fadeInterval);
+        }
+        bgAudio.volume = volume;
+    }, 50);
+}
+
+function fadeAudioOut(callback) {
+    let volume = bgAudio.volume;
+    const fadeInterval = setInterval(() => {
+        volume -= 0.02;
+        if (volume <= 0) {
+            volume = 0;
+            bgAudio.pause();
+            clearInterval(fadeInterval);
+            if (callback) callback();
+        }
+        bgAudio.volume = volume;
+    }, 30);
+}
+
+function toggleAudio() {
+    if (isPlaying) {
+        fadeAudioOut(() => {
+            isPlaying = false;
+            audioPlayer.classList.remove('playing');
+        });
+    } else {
+        bgAudio.volume = 0;
+        bgAudio.play().then(() => {
+            isPlaying = true;
+            audioPlayer.classList.add('playing');
+            fadeAudioIn();
+        }).catch(err => {
+            console.log('Playback failed:', err);
+        });
+    }
+}
+
+audioBtn.addEventListener('click', toggleAudio);
 
 // ═══════════════════════════════════════════════════════════
 // GALLERY GRID
