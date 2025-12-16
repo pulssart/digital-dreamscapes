@@ -20,6 +20,69 @@ document.addEventListener('contextmenu', (e) => {
     }
 });
 
+// Block DevTools shortcuts
+document.addEventListener('keydown', (e) => {
+    // F12
+    if (e.key === 'F12') {
+        e.preventDefault();
+        return false;
+    }
+    // Ctrl+Shift+I (DevTools)
+    if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+        e.preventDefault();
+        return false;
+    }
+    // Ctrl+Shift+J (Console)
+    if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
+        e.preventDefault();
+        return false;
+    }
+    // Ctrl+Shift+C (Inspect element)
+    if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c')) {
+        e.preventDefault();
+        return false;
+    }
+    // Ctrl+U (View source)
+    if (e.ctrlKey && (e.key === 'U' || e.key === 'u')) {
+        e.preventDefault();
+        return false;
+    }
+    // Cmd+Option+I (Mac DevTools)
+    if (e.metaKey && e.altKey && (e.key === 'I' || e.key === 'i')) {
+        e.preventDefault();
+        return false;
+    }
+    // Cmd+Option+J (Mac Console)
+    if (e.metaKey && e.altKey && (e.key === 'J' || e.key === 'j')) {
+        e.preventDefault();
+        return false;
+    }
+    // Cmd+Option+U (Mac View source)
+    if (e.metaKey && e.altKey && (e.key === 'U' || e.key === 'u')) {
+        e.preventDefault();
+        return false;
+    }
+    // Ctrl+S / Cmd+S (Save page)
+    if ((e.ctrlKey || e.metaKey) && (e.key === 'S' || e.key === 's')) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// Disable text selection on entire page (optional - more aggressive)
+document.addEventListener('selectstart', (e) => {
+    if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+        // Allow selection only in inputs
+        if (e.target.closest('.gallery-item') || 
+            e.target.closest('.lightbox') ||
+            e.target.closest('.hero') ||
+            e.target.tagName === 'IMG') {
+            e.preventDefault();
+            return false;
+        }
+    }
+});
+
 // Prevent drag on images
 document.addEventListener('dragstart', (e) => {
     if (e.target.tagName === 'IMG') {
