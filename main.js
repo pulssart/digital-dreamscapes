@@ -171,7 +171,7 @@ const lightboxTitle = document.getElementById('lightbox-title');
 const lightboxClose = document.querySelector('.lightbox-close');
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
-const buyBtn = document.getElementById('buy-btn');
+const downloadBtn = document.getElementById('download-btn');
 const cursor = document.querySelector('.cursor');
 const cursorFollower = document.querySelector('.cursor-follower');
 
@@ -306,7 +306,7 @@ function renderGallery() {
             <img src="wall/${encodeURIComponent(filename)}" alt="${getTitle(filename)}" loading="lazy">
             <div class="gallery-item-overlay">
                 <div class="gallery-item-title">${getTitle(filename)}</div>
-                <div class="gallery-item-price">$2.00</div>
+                <div class="gallery-item-download">Free</div>
             </div>
             <div class="gallery-item-index">${String(index + 1).padStart(2, '0')}</div>
         </div>
@@ -400,97 +400,20 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ═══════════════════════════════════════════════════════════
-// STRIPE INTEGRATION
+// DOWNLOAD FUNCTIONALITY
 // ═══════════════════════════════════════════════════════════
 
-// IMPORTANT: Replace with your actual Stripe publishable key
-const STRIPE_PUBLISHABLE_KEY = 'pk_test_VOTRE_CLE_PUBLIQUE_STRIPE';
-
-buyBtn.addEventListener('click', async () => {
+downloadBtn.addEventListener('click', () => {
     const filename = wallpapers[currentIndex];
-    const title = getTitle(filename);
+    const imageUrl = `wall/${encodeURIComponent(filename)}`;
     
-    // Check if Stripe is configured
-    if (STRIPE_PUBLISHABLE_KEY === 'pk_test_VOTRE_CLE_PUBLIQUE_STRIPE') {
-        // Demo mode - show alert
-        alert(`🎨 Purchase: "${title}"\n\n💰 Price: $2.00\n\nTo enable real payments:\n1. Create a Stripe account\n2. Replace STRIPE_PUBLISHABLE_KEY in main.js\n3. Set up the payment backend`);
-        return;
-    }
-    
-    // Production mode - redirect to Stripe Checkout
-    try {
-        const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
-        
-        // In production, you'd call your backend to create a checkout session
-        // For now, we'll use Stripe Payment Links or a simple checkout
-        
-        const response = await fetch('/create-checkout-session', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                wallpaper: filename,
-                title: title,
-                price: 200 // in cents
-            }),
-        });
-        
-        const session = await response.json();
-        
-        const result = await stripe.redirectToCheckout({
-            sessionId: session.id,
-        });
-        
-        if (result.error) {
-            alert(result.error.message);
-        }
-    } catch (error) {
-        console.error('Payment error:', error);
-        alert('An error occurred. Please try again.');
-    }
-});
-
-// Pack purchase button
-const buyPackBtn = document.getElementById('buy-pack-btn');
-
-buyPackBtn.addEventListener('click', async () => {
-    // Check if Stripe is configured
-    if (STRIPE_PUBLISHABLE_KEY === 'pk_test_VOTRE_CLE_PUBLIQUE_STRIPE') {
-        // Demo mode - show alert
-        alert(`🎨 COMPLETE BUNDLE — 45 Wallpapers\n\n💰 Price: $50.00 (instead of $90)\n📦 Savings: $40 (-44%)\n\n✅ 45 high-resolution wallpapers\n✅ Instant download\n✅ Unlimited personal use\n\nTo enable real payments:\n1. Create a Stripe account\n2. Replace STRIPE_PUBLISHABLE_KEY in main.js\n3. Set up the payment backend`);
-        return;
-    }
-    
-    // Production mode - redirect to Stripe Checkout
-    try {
-        const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
-        
-        const response = await fetch('/create-checkout-session', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                product: 'pack_complete',
-                title: 'Pack Complet — 45 Wallpapers',
-                price: 5000 // $50 in cents
-            }),
-        });
-        
-        const session = await response.json();
-        
-        const result = await stripe.redirectToCheckout({
-            sessionId: session.id,
-        });
-        
-        if (result.error) {
-            alert(result.error.message);
-        }
-    } catch (error) {
-        console.error('Payment error:', error);
-        alert('An error occurred. Please try again.');
-    }
+    // Create a temporary link to trigger download
+    const link = document.createElement('a');
+    link.href = imageUrl;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 });
 
 // ═══════════════════════════════════════════════════════════

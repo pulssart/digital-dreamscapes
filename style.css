@@ -1481,7 +1481,7 @@ nav a:hover::after {
     transform: translateY(0);
 }
 
-.gallery-item-price {
+.gallery-item-download {
     font-size: 0.7rem;
     color: var(--accent);
     letter-spacing: 0.1em;
@@ -1489,7 +1489,7 @@ nav a:hover::after {
     transition: transform 0.3s ease 0.05s;
 }
 
-.gallery-item:hover .gallery-item-price {
+.gallery-item:hover .gallery-item-download {
     transform: translateY(0);
 }
 
@@ -2088,14 +2088,7 @@ nav a:hover::after {
     margin-bottom: 1rem;
 }
 
-.lightbox-price {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--accent);
-    margin-bottom: 2rem;
-}
-
-.buy-btn {
+.download-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -2114,22 +2107,22 @@ nav a:hover::after {
     width: 100%;
 }
 
-.buy-btn:hover {
+.download-btn:hover {
     background: var(--text);
     color: #fff;
     transform: translateY(-2px);
 }
 
-.buy-btn:active {
+.download-btn:active {
     transform: translateY(0);
 }
 
-.buy-btn svg {
+.download-btn svg {
     transition: transform 0.3s ease;
 }
 
-.buy-btn:hover svg {
-    transform: translateX(5px);
+.download-btn:hover svg {
+    transform: translateY(3px);
 }
 
 .lightbox-note {

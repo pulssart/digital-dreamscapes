@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
     <div class="cursor"></div>
@@ -64,7 +63,7 @@
                 <span class="line">DIGITAL</span>
                 <span class="line accent">DREAMSCAPES</span>
             </h1>
-            <p class="hero-subtitle">45 unique AI-crafted wallpapers, hand-retouched with care.<br>Download instantly — <span class="price">$2</span> each</p>
+            <p class="hero-subtitle">45 unique AI-crafted wallpapers, hand-retouched with care.<br>Free download — enjoy!</p>
             <a href="#gallery" class="cta">
                 <span>Browse & Download</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -350,71 +349,6 @@
         </div>
     </section>
 
-    <!-- Pack Section -->
-    <section class="pack" id="pack">
-        <div class="pack-content">
-            <div class="pack-badge">SPECIAL OFFER</div>
-            <h2>COMPLETE<br><span class="italic">BUNDLE</span></h2>
-            <p class="pack-description">Get all <strong>45 wallpapers</strong> from the collection in a single purchase. Massive savings for true collectors.</p>
-            
-            <div class="pack-pricing">
-                <div class="pack-compare">
-                    <div class="price-old">
-                        <span class="label">45 × $2 =</span>
-                        <span class="amount">$90</span>
-                    </div>
-                    <div class="price-arrow">→</div>
-                    <div class="price-new">
-                        <span class="label">Complete bundle</span>
-                        <span class="amount">$50</span>
-                    </div>
-                </div>
-                
-                <div class="pack-savings">
-                    <span class="savings-badge">-44%</span>
-                    <span class="savings-text">Save <strong>$40</strong></span>
-                </div>
-            </div>
-            
-            <div class="pack-features">
-                <div class="feature">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    <span>45 high-resolution wallpapers (4K+)</span>
-                </div>
-                <div class="feature">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    <span>Instant download</span>
-                </div>
-                <div class="feature">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    <span>Unlimited personal use</span>
-                </div>
-            </div>
-            
-            <button class="pack-btn" id="buy-pack-btn">
-                <span>Buy complete bundle — $50</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
-                </svg>
-            </button>
-        </div>
-        
-        <div class="pack-preview">
-            <div class="pack-grid">
-                <div class="pack-img" style="background-image: url('wall/When-Stars-Remember.jpeg')"></div>
-                <div class="pack-img" style="background-image: url('wall/Eyes-That-Hold-Wilderness.jpeg')"></div>
-                <div class="pack-img" style="background-image: url('wall/Innocence-Guarded.png')"></div>
-                <div class="pack-img" style="background-image: url('wall/Daughter-of-the-Rising-Sun.png')"></div>
-            </div>
-        </div>
-    </section>
-
     <!-- About Section -->
     <section class="about" id="about">
         <div class="about-content">
@@ -426,8 +360,8 @@
                     <span class="stat-label">Artworks</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number">$2</span>
-                    <span class="stat-label">Per piece</span>
+                    <span class="stat-number">FREE</span>
+                    <span class="stat-label">Download</span>
                 </div>
                 <div class="stat">
                     <span class="stat-number">4K+</span>
@@ -466,14 +400,13 @@
             </div>
             <div class="lightbox-info">
                 <h3 id="lightbox-title"></h3>
-                <div class="lightbox-price">$2.00 USD</div>
-                <button class="buy-btn" id="buy-btn">
-                    <span>Buy now</span>
+                <button class="download-btn" id="download-btn">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2"/>
                     </svg>
+                    <span>Download</span>
                 </button>
-                <p class="lightbox-note">Instant download after payment</p>
+                <p class="lightbox-note">Free — 4K+ resolution</p>
             </div>
         </div>
         <button class="lightbox-nav prev" id="prev-btn">
