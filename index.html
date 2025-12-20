@@ -252,107 +252,69 @@
         </div>
     </div>
 
-    <!-- Prompt Art Section -->
-    <section class="prompt-section" id="prompt">
-        <div class="prompt-header">
-            <div class="prompt-badge">BEHIND THE SCENES</div>
-            <h2>THE ART OF<br><span class="italic">PROMPTING</span></h2>
-            <p>Every image starts with carefully crafted words. Here's how we write prompts that bring visions to life.</p>
-        </div>
-        
-        <div class="prompt-showcase">
-            <div class="prompt-example">
-                <div class="prompt-label">
-                    <span class="label-icon">/</span>
-                    <span>imagine</span>
-                </div>
-                <div class="prompt-text">
-                    <span class="prompt-word subject" data-type="Subject">A majestic snow leopard</span>
-                    <span class="prompt-word action" data-type="Action">resting on ancient temple ruins</span>
-                    <span class="prompt-word environment" data-type="Environment">in a mystical Himalayan forest</span>,
-                    <span class="prompt-word lighting animated" data-type="Lighting">golden hour sunlight filtering through mist</span>,
-                    <span class="prompt-word detail" data-type="Details">intricate fur texture</span>,
-                    <span class="prompt-word detail" data-type="Details">piercing blue eyes</span>,
-                    <span class="prompt-word style highlighted" data-type="Style">dreamlike surrealism</span>,
-                    <span class="prompt-word mood" data-type="Mood">ethereal and serene atmosphere</span>,
-                    <span class="prompt-word technical" data-type="Technical">8K resolution</span>,
-                    <span class="prompt-word technical" data-type="Technical">hyperdetailed</span>,
-                    <span class="prompt-word technical" data-type="Technical">cinematic composition</span>
-                    <span class="prompt-word params" data-type="Parameters">--ar 16:10 --v 6 --s 750 --q 2</span>
-                </div>
-            </div>
-            
-            <div class="prompt-legend">
-                <div class="legend-item">
-                    <span class="legend-color subject"></span>
-                    <span class="legend-label">Subject</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color action"></span>
-                    <span class="legend-label">Action</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color environment"></span>
-                    <span class="legend-label">Environment</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color lighting"></span>
-                    <span class="legend-label">Lighting</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color detail"></span>
-                    <span class="legend-label">Details</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color style"></span>
-                    <span class="legend-label">Style</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color mood"></span>
-                    <span class="legend-label">Mood</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color technical"></span>
-                    <span class="legend-label">Technical</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color params"></span>
-                    <span class="legend-label">Parameters</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="prompt-tips">
-            <div class="tip">
-                <div class="tip-number">01</div>
-                <div class="tip-content">
-                    <h4>Start with the subject</h4>
-                    <p>The main focus of your image should come first for maximum impact.</p>
-                </div>
-            </div>
-            <div class="tip">
-                <div class="tip-number">02</div>
-                <div class="tip-content">
-                    <h4>Layer your details</h4>
-                    <p>Add environment, lighting, and mood to create depth and atmosphere.</p>
-                </div>
-            </div>
-            <div class="tip">
-                <div class="tip-number">03</div>
-                <div class="tip-content">
-                    <h4>Reference artists</h4>
-                    <p>Mentioning specific styles or artists guides the AI's aesthetic choices.</p>
-                </div>
-            </div>
-        </div>
+    <!-- Mobile Section -->
+    <section class="mobile-section" id="mobile">
+        <div class="mobile-bg" style="background-image: url('wall/tease.jpeg')"></div>
+        <a href="wall/mobile.jpeg" download="Digital-Dreamscapes-Mobile.jpeg" class="mobile-download-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>Download Mobile Wallpaper</span>
+        </a>
     </section>
 
     <!-- Gallery Section -->
     <section class="gallery" id="gallery">
         <div class="gallery-header">
             <h2>COLLECTION</h2>
-            <div class="gallery-count"><span id="count">45</span> artworks</div>
+            <div class="gallery-count"><span id="count">50</span> artworks</div>
         </div>
+        
+        <!-- New Wallpapers Subsection -->
+        <div class="new-wallpapers">
+            <div class="new-wallpapers-header">
+                <span class="new-badge">NEW</span>
+                <h3>New Wallpapers</h3>
+            </div>
+            <div class="new-wallpapers-grid">
+                <div class="new-item" data-file="1.jpg" data-title="Whispers of Dawn">
+                    <img src="wall/1.jpg" alt="Whispers of Dawn" loading="lazy">
+                    <div class="new-item-overlay">
+                        <span class="new-item-title">Whispers of Dawn</span>
+                        <span class="new-item-download">Free</span>
+                    </div>
+                </div>
+                <div class="new-item" data-file="2.jpg" data-title="Golden Solitude">
+                    <img src="wall/2.jpg" alt="Golden Solitude" loading="lazy">
+                    <div class="new-item-overlay">
+                        <span class="new-item-title">Golden Solitude</span>
+                        <span class="new-item-download">Free</span>
+                    </div>
+                </div>
+                <div class="new-item" data-file="3.jpg" data-title="Realm of Silence">
+                    <img src="wall/3.jpg" alt="Realm of Silence" loading="lazy">
+                    <div class="new-item-overlay">
+                        <span class="new-item-title">Realm of Silence</span>
+                        <span class="new-item-download">Free</span>
+                    </div>
+                </div>
+                <div class="new-item" data-file="4.jpg" data-title="Eternal Bloom">
+                    <img src="wall/4.jpg" alt="Eternal Bloom" loading="lazy">
+                    <div class="new-item-overlay">
+                        <span class="new-item-title">Eternal Bloom</span>
+                        <span class="new-item-download">Free</span>
+                    </div>
+                </div>
+                <div class="new-item" data-file="5.jpg" data-title="Threads of Light">
+                    <img src="wall/5.jpg" alt="Threads of Light" loading="lazy">
+                    <div class="new-item-overlay">
+                        <span class="new-item-title">Threads of Light</span>
+                        <span class="new-item-download">Free</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <div class="gallery-grid" id="gallery-grid">
             <!-- Images will be injected here -->
         </div>

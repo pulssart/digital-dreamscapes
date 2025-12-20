@@ -403,9 +403,19 @@ document.addEventListener('keydown', (e) => {
 // DOWNLOAD FUNCTIONALITY
 // ═══════════════════════════════════════════════════════════
 
+// Track if we're viewing a new wallpaper (not in main array)
+let currentNewWallpaper = null;
+
 downloadBtn.addEventListener('click', () => {
-    const filename = wallpapers[currentIndex];
-    const imageUrl = `wall/${encodeURIComponent(filename)}`;
+    let filename, imageUrl;
+    
+    if (currentNewWallpaper) {
+        filename = currentNewWallpaper.file;
+        imageUrl = `wall/${encodeURIComponent(filename)}`;
+    } else {
+        filename = wallpapers[currentIndex];
+        imageUrl = `wall/${encodeURIComponent(filename)}`;
+    }
     
     // Create a temporary link to trigger download
     const link = document.createElement('a');
@@ -415,6 +425,48 @@ downloadBtn.addEventListener('click', () => {
     link.click();
     document.body.removeChild(link);
 });
+
+// ═══════════════════════════════════════════════════════════
+// NEW WALLPAPERS SECTION
+// ═══════════════════════════════════════════════════════════
+
+function initNewWallpapers() {
+    const newItems = document.querySelectorAll('.new-item');
+    
+    newItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const file = item.dataset.file;
+            const title = item.dataset.title;
+            
+            // Set current new wallpaper
+            currentNewWallpaper = { file, title };
+            
+            // Open lightbox with this image
+            lightboxImage.src = `wall/${encodeURIComponent(file)}`;
+            lightboxImage.alt = title;
+            lightboxTitle.textContent = title;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Hide navigation for new wallpapers (they're separate)
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+        });
+        
+        // Add cursor hover effect
+        item.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        item.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+}
+
+// Override closeLightbox to reset new wallpaper state
+const originalCloseLightbox = closeLightbox;
+closeLightbox = function() {
+    originalCloseLightbox();
+    currentNewWallpaper = null;
+    prevBtn.style.display = '';
+    nextBtn.style.display = '';
+};
 
 // ═══════════════════════════════════════════════════════════
 // SMOOTH SCROLL
@@ -549,6 +601,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderGallery();
     updateHeroPreview();
     initDetailZoom();
+    initNewWallpapers();
     
     // Observe gallery items for animation
     document.querySelectorAll('.gallery-item').forEach(item => {
