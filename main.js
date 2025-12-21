@@ -432,7 +432,7 @@ downloadBtn.addEventListener('click', () => {
 
 function initNewWallpapers() {
     const newItems = document.querySelectorAll('.new-item');
-    
+
     newItems.forEach(item => {
         item.addEventListener('click', () => {
             const file = item.dataset.file;
