@@ -486,6 +486,52 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ═══════════════════════════════════════════════════════════
+// MOBILE SECTION PARALLAX
+// ═══════════════════════════════════════════════════════════
+
+function initMobileParallax() {
+    const mobileSection = document.querySelector('.mobile-section');
+    const mobileBg = document.querySelector('.mobile-bg');
+    
+    if (!mobileSection || !mobileBg) return;
+    
+    function updateParallax() {
+        const rect = mobileSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Calculate how far through the viewport the section is
+        // When section top is at bottom of viewport: 0
+        // When section bottom is at top of viewport: 1
+        const start = rect.top - windowHeight;
+        const end = rect.bottom;
+        const total = end - start;
+        const current = -start;
+        const progress = current / total;
+        
+        // Parallax speed (0.3 = 30% of scroll speed)
+        const parallaxSpeed = 0.4;
+        const offset = (progress - 0.5) * rect.height * parallaxSpeed;
+        
+        mobileBg.style.transform = `translateY(${offset}px)`;
+    }
+    
+    // Initial call
+    updateParallax();
+    
+    // Update on scroll with requestAnimationFrame for smoothness
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                updateParallax();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+}
+
+// ═══════════════════════════════════════════════════════════
 // INTERSECTION OBSERVER FOR ANIMATIONS
 // ═══════════════════════════════════════════════════════════
 
@@ -602,6 +648,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateHeroPreview();
     initDetailZoom();
     initNewWallpapers();
+    initMobileParallax();
     
     // Observe gallery items for animation
     document.querySelectorAll('.gallery-item').forEach(item => {

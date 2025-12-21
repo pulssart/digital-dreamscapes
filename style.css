@@ -1390,7 +1390,7 @@ nav a:hover::after {
 
 .mobile-section {
     position: relative;
-    min-height: 80vh;
+    height: 50vh;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -1400,9 +1400,10 @@ nav a:hover::after {
 
 .mobile-bg {
     position: absolute;
-    inset: 0;
+    inset: -20%;
     background-size: cover;
     background-position: center;
+    will-change: transform;
 }
 
 .mobile-download-btn {
@@ -1442,7 +1443,7 @@ nav a:hover::after {
 
 @media (max-width: 768px) {
     .mobile-section {
-        min-height: 60vh;
+        height: 40vh;
         padding-left: 2rem;
     }
     
@@ -1524,7 +1525,7 @@ nav a:hover::after {
 
 .new-wallpapers-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
 }
 
